@@ -1,26 +1,26 @@
 package application;
 
-public class Row{
-	private Cell[] row = new Cell[9];
+public class Column{
+	private Cell[] col = new Cell[9];
 	private int[] nums = new int[9];
 
-    public Row() {
+    public Column() {
         for(int i = 0; i < 9; i++) {
-                row[i] = new Cell();
+                col[i] = new Cell();
         }
     }
-    public Row(Cell[] row, int[] nums) {
-    	this.row = row;
+    public Column(Cell[] col, int[] nums) {
+    	this.col = col;
     	this.nums = nums;
     }
     
-	public Cell[] getRow() {
-		return row;
+	public Cell[] getCol() {
+		return col;
 	}
-	public int[] rowNums() {
+	public int[] colNums() {
 		for(int i = 0; i < 9; i++) {
-			if(row[i].getNum() != 0) {
-				nums[i] = row[i].getNum();
+			if(col[i].getNum() != 0) {
+				nums[i] = col[i].getNum();
 			}
 			else {
 				nums[i] = 0;
@@ -37,5 +37,4 @@ public class Row{
 			return true;
 		}
 	}
-	
 }
