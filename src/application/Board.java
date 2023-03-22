@@ -19,7 +19,6 @@ public class Board extends Application{
 		rec.setFill(Color.WHITE);
 		
 		
-		
 		Pane pane = new Pane();
 		pane.getChildren().add(rec);
 		
