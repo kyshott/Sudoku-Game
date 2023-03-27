@@ -11,14 +11,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
-/**
- * 
- * This test class will increment a JavaFX label every second and change what it displays accordingly
- * This will be expanded later on to either count down or up depending on what we need
- * If hours and minutes want to be visualized in a 0:00:0 format then that is possible as well and will be done here
- *
- */
-
 public class Timer extends Application {
 	
 	int seconds = 0;
