@@ -58,7 +58,7 @@ public class Solver {
 		return true;
 	}
 	
-	public  void printBoard(int[][] board){
+	public void printBoard(int[][] board){
 		for(int row = 0; row < GRID_SIZE; row++) {
 			for(int col = 0; col < GRID_SIZE; col++) {
 				System.out.print(board[row][col]);
