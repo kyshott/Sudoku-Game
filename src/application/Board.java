@@ -2,9 +2,85 @@ package application;
 
 
 public class Board extends Solver{
+	//build board with player and solutions here
+	//LOTS OF UNUSED METHODS THAT MIGHT BE HELPFUL FOR GENERATING SOLVABLE BOARD
+	private final int GRID_SIZE = 9;
+	private int[][] sol;
+	private int[][] init;
+	private int[][] player;
 	
-	public static void main(String[] args) {
-		
+	public Board() {
+		sol = new int[][] 
+		{
+			{7,3,2,4,5,8,6,1,9},
+			{9,5,6,1,7,3,8,2,4},
+			{1,8,4,6,2,9,5,3,7},
+			{8,7,1,5,6,4,3,9,2},
+			{6,4,3,8,9,2,7,5,1},
+			{2,9,5,3,1,7,4,6,8},
+			{3,2,9,7,8,6,1,4,5},
+			{4,1,8,2,3,5,9,7,6},
+			{5,6,7,9,4,1,2,8,3}
+			};
+			//INIT BOARD ONLY NEEDS 3 IN BOTTOM F0R TESTING PURPOSE. REAL INITIAL BOARD COMMENTED OUT BELOW
+			init = new int[][]
+			{
+				{7,3,2,4,5,8,6,1,9},
+				{9,5,6,1,7,3,8,2,4},
+				{1,8,4,6,2,9,5,3,7},
+				{8,7,1,5,6,4,3,9,2},
+				{6,4,3,8,9,2,7,5,1},
+				{2,9,5,3,1,7,4,6,8},
+				{3,2,9,7,8,6,1,4,5},
+				{4,1,8,2,3,5,9,7,6},
+				{5,6,7,9,4,1,2,8,0}
+				};
+				/*
+				{7,0,2,0,5,0,6,0,0},
+				{0,0,0,0,0,3,0,0,0},
+				{1,0,0,0,0,9,5,0,0},
+				{8,0,0,0,0,0,0,9,0},
+				{0,4,3,0,0,0,7,5,0},
+				{0,9,0,0,0,0,0,0,8},
+				{0,0,9,7,0,0,0,0,5},
+				{0,0,0,2,0,0,0,0,0},
+				{0,0,7,0,4,0,2,0,3}
+				}
+				*/
+				player = new int[9][9];
+	}
+	
+	public int[][] getSol() {
+		return sol;
+	}
+	
+	public int[][] getInit() {
+		return init;
+	}
+	
+	public int[][] getPlayer() {
+		return player;
+	}
+	
+	public void modifyPlayer(int num, int row, int col) {
+		if(init[row][col] == 0) {
+		if(num >= 0 && num <= GRID_SIZE) {
+			player[row][col] = num;
+		}
+		else {
+			System.out.println("Number out of range.");
+		}
+		}
+	}
+	
+	
+	public int[][] blank(int[][] board) {
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				board[i][j] = 0;
+			}
+		}
+		return board;
 	}
 
 	

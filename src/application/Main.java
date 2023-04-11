@@ -12,7 +12,6 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		//TESTING BOARD. NEEDS TO BE OUTPUTED TO THE GUI AND NOT CONSOLE
 		try {
-			Board bor = new Board();
 				int[][] testBoard = {
 						{7,0,2,0,5,0,6,0,0},
 						{0,0,0,0,0,3,0,0,0},
@@ -27,6 +26,7 @@ public class Main extends Application {
 				Solver solver = new Solver();
 				solver.solve(testBoard);
 				solver.printBoard(testBoard);
+				System.out.println();
 				
 				
 			
