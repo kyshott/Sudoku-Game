@@ -84,13 +84,16 @@ public class Board extends Solver{
 	
 	
 	private final int GRID_SIZE = 9;
+	
 	private int[][] sol;
+	
 	private int[][] init;
+	
 	private int[][] player;
 	
-	public Board() {
-		
 	final int[][] initBoard = generateBoard();
+	
+	public Board() {
 	
     int[][] solveBoard = new int[9][9];
     
@@ -111,12 +114,12 @@ public class Board extends Solver{
 	System.out.println();
 	
 	printtempBoard(solveBoard);
-		
+	
 		sol = solveBoard;
 		
-		init = initBoard;
+		init = new int[9][9];
 				
-				player = new int[9][9];
+	    player = new int[9][9];
 				
 	}
 	
@@ -143,6 +146,13 @@ public class Board extends Solver{
 		}
 	}
 	
+	public void setBoard() {
+		
+		init = initBoard;
+		
+		getInit();
+		
+	}
 	
 	public int[][] blank(int[][] board) {
 		for(int i = 0; i < 9; i++) {

@@ -131,6 +131,16 @@ public class Controller implements Initializable{
 		});
 	}
 	
+	public void buttonStartPressed() {
+		bor.setBoard();
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}
+	
+	public void buttonUndoPressed() {
+		bor.modifyPlayer(0, psr, psc);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}
+	
 	public void buttonOnePressed() {
 		bor.modifyPlayer(1, psr, psc);
 		drawOnCanvas(canvas.getGraphicsContext2D());
