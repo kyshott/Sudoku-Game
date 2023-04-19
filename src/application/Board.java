@@ -144,7 +144,7 @@ public class Board extends Solver{
 		
 	    Random random = new Random();
 	    
-	    int numCellsToRemove = 81 - 30;
+	    int numCellsToRemove = 81 - 30; // EDIT THE SECOND NUMBER HERE TO CHANGE THE NUMBER OF CELLS FILLED IN
 	    
 	    while (numCellsToRemove > 0) {
 	    	
