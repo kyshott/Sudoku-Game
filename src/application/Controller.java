@@ -1,5 +1,6 @@
 package application;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.EventHandler;
@@ -25,6 +26,7 @@ public class Controller implements Initializable{
 	@FXML Button button7;
 	@FXML Button button8;
 	@FXML Button button9;
+	@FXML Button buttonStart;
 	@FXML Button buttonUndo;
 	@FXML Canvas canvas;
 	
@@ -36,7 +38,7 @@ public class Controller implements Initializable{
 		this.psc = 0;
 		this.psr = 0;
 	}
-	public void drawOnCanvas(GraphicsContext gc) {
+	public void drawOnCanvas(GraphicsContext gc) {	
 		gc.clearRect(0, 0, 450, 450);
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
@@ -109,11 +111,13 @@ public class Controller implements Initializable{
 			}
 		}
 		//THIS DOESN'T WORK YET
-		if(combine == sol) {
-			gc.clearRect(0, 0, 450, 450);
-			gc.setFill(Color.GREEN);
-			gc.setFont(new Font(36));
-			gc.fillText("SUCCESS!", 150, 250);
+		if(Arrays.deepEquals(combine, sol)) {
+		    gc.clearRect(0, 0, 450, 450);
+		    gc.setFill(Color.GREEN);
+		    gc.setFont(new Font(36));
+		    gc.fillText("SUCCESS!", 150, 250);
+		    buttonStart.setDisable(false);
+		    bor = new Board();
 		}
 		
 	}
@@ -133,7 +137,9 @@ public class Controller implements Initializable{
 	
 	public void buttonStartPressed() {
 		bor.setBoard();
+		Board.printtempBoard(Board.sol);
 		drawOnCanvas(canvas.getGraphicsContext2D());
+		buttonStart.setDisable(true);
 	}
 	
 	public void buttonUndoPressed() {

@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 
 public class Solver {
-	private final int GRID_SIZE = 9;
+	final static int GRID_SIZE = 9;
 	
 	public boolean inRow(int[][] board, int num, int row) {
 		for(int i = 0; i < GRID_SIZE; i++) {

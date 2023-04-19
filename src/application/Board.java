@@ -1,24 +1,30 @@
 package application;
 
+import java.util.Random;
 
 public class Board extends Solver{
 	
 	public int[][] generateBoard() {
 	   
 	    int[][] board = new int[9][9];
+	    
 	    for (int i = 0; i < 9; i++) {
+	    	
 	        for (int j = 0; j < 9; j++) {
+	        	
 	            board[i][j] = 0;
+	            
 	        }
+	        
 	    }
-
 	    
 	    int count = 0;
-	    while (count < 17) {
+	    
+	    while (count < 20) {
 	       
 	        int row = (int) (Math.random() * 9);
+	        
 	        int col = (int) (Math.random() * 9);
-
 	        
 	        if (board[row][col] != 0) {
 	        	
@@ -44,12 +50,18 @@ public class Board extends Solver{
 
 
 	public static void printtempBoard(int[][] board) {
+		
 	    for (int i = 0; i < 9; i++) {
+	    	
 	        for (int j = 0; j < 9; j++) {
+	        	
 	            System.out.print(board[i][j] + " ");
+	            
 	        }
+	        
 	        System.out.println();
 	    }
+	    
 	}
 
 	
@@ -82,45 +94,72 @@ public class Board extends Solver{
 	    return true;
 	}
 	
+	static int[][] sol;
 	
-	private final int GRID_SIZE = 9;
-	
-	private int[][] sol;
-	
-	private int[][] init;
+	int[][] init;
 	
 	private int[][] player;
 	
-	final int[][] initBoard = generateBoard();
+	private int[][] copyBoard = new int[9][9];
 	
 	public Board() {
+		
+	int[][] board = generateBoard();
 	
-    int[][] solveBoard = new int[9][9];
-    
-    for (int row = 0; row < 9; row++) {
-    	
-        for (int col = 0; col < 9; col++) {
-        	
-            solveBoard[row][col] = initBoard[row][col];
-            
-        }
-        
-    }
+	solve(board);
 	
-	printtempBoard(initBoard);
-	
-	solve(solveBoard);
+	while (!(solve(board))) {
+		
+		board = generateBoard();
+		
+		if (solve(board)) {
+			
+			break;
+			
+		}
+		
+	}
 	
 	System.out.println();
 	
-	printtempBoard(solveBoard);
-	
-		sol = solveBoard;
+		sol = board;
 		
 		init = new int[9][9];
 				
 	    player = new int[9][9];
+	    
+	    for (int row = 0; row < 9; row++) {
+	    	
+	        for (int col = 0; col < 9; col++) {
+	        	
+	            copyBoard[row][col] = board[row][col];
+	            
+	        }
+	        
+	    }
 				
+	}
+	
+	public static void removeCells(int[][] board) {
+		
+	    Random random = new Random();
+	    
+	    int numCellsToRemove = 81 - 30;
+	    
+	    while (numCellsToRemove > 0) {
+	    	
+	        int row = random.nextInt(9);
+	        
+	        int col = random.nextInt(9);
+	        
+	        if (board[row][col] != 0) {
+	        	
+	            board[row][col] = 0;
+	            
+	            numCellsToRemove--;
+	            
+	        }
+	    }
 	}
 	
 	public int[][] getSol() {
@@ -148,70 +187,12 @@ public class Board extends Solver{
 	
 	public void setBoard() {
 		
-		init = initBoard;
+		removeCells(copyBoard);
+		
+		init = copyBoard;
 		
 		getInit();
 		
 	}
-	
-	public int[][] blank(int[][] board) {
-		for(int i = 0; i < 9; i++) {
-			for(int j = 0; j < 9; j++) {
-				board[i][j] = 0;
-			}
-		}
-		return board;
-	}
-
-	
-	//public void buttonTest(Stage primaryStage) { // More testing using the "gridpane" class to set buttons objects in a grid + some cosmetic experiments
-		
-		/*
-		 * 	primaryStage.setTitle("Sudoku Solver");
-    
-    Button button1 = new Button("1");
-    Button button2 = new Button("2");
-    Button button3 = new Button("3");
-    Button button4 = new Button("4");
-    Button button5 = new Button("5");
-    Button button6 = new Button("6");
-    Button button7 = new Button("7");
-    Button button8 = new Button("8");
-    Button button9 = new Button("9");
-    
-    button1.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button2.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button3.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button4.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button5.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button6.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button7.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button8.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    button9.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;");
-    
-    GridPane gridPane = new GridPane();
-    
-    gridPane.setAlignment(Pos.BOTTOM_RIGHT);
-    
-    gridPane.add(button1, 0, 0);
-    gridPane.add(button2, 1, 0);
-    gridPane.add(button3, 2, 0);
-    gridPane.add(button4, 0, 1);
-    gridPane.add(button5, 1, 1);
-    gridPane.add(button6, 2, 1);
-    gridPane.add(button7, 0, 2);
-    gridPane.add(button8, 1, 2);
-    gridPane.add(button9, 2, 2);
-    
-    Scene scene = new Scene(gridPane, 800, 500);
-        
-    primaryStage.setScene(scene);
-    
-    primaryStage.setResizable(false);
-    
-    primaryStage.show();
-		 */
-		
-	//}
 
 }
