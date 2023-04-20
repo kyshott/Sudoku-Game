@@ -2,7 +2,7 @@ package application;
 import java.io.*;
 import java.util.*;
 
-public class Solver {
+public abstract class Solver {
 	final static int GRID_SIZE = 9;
 	
 	public boolean inRow(int[][] board, int num, int row) {
