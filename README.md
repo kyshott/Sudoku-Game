@@ -4,7 +4,7 @@
 
 ### DOWNLOADS:
 
-Windows Application
+[Windows Application](https://github.com/kyshott/Sudoku-Game/releases/tag/v1.0.0)
 
 #### Description:
 Our project generates, solves, and desplays a sudoku game. We use JavaFX along with SceneBuilder to build a game board. The user can then input numbers into the board using our numberpad to fill in the empty spaces to solve the puzzle.
