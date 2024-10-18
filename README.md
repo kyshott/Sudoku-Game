@@ -1,5 +1,4 @@
-# comp1050-sp23-team-project-sudoku-game
-comp1050-sp23-team-project-sudoku-game created by GitHub Classroom
+# Java Sudoku Proof of Concept
 
 ### Project Title: Sudoku Game
 
@@ -20,6 +19,7 @@ We each learned a lot about JavaFX, the JFC, and how use OOP to seperate our pro
 
 #### Credit:
 This project was contributed to by Joseph Mulligan, Kyle Shott, and Nicholas Ramond.
+This project was completed as part of WIT Computer Science II class 04/2023
 
 
 
