@@ -1,3 +1,5 @@
+<div align="center">
+
 # Java Sudoku
 
 ### Project Title: Sudoku Game
@@ -15,6 +17,8 @@ To play all you have to do is run the program in an IDE or download the .zip fil
 The game will give you live feedback on whether or not your input was correct; if the number appears green, it is the correct input; if it is red, then it is incorrect. This does make it much easier, but demonstrates the program's ability to solve the board.
 
 ![sudoku](https://github.com/user-attachments/assets/edc594d4-0c96-4b52-9815-738a8971d57a)
+
+</div>
 
 #### Challenges:
 A few of the complex chalenges we faced were the solving algorithm and the board generating algorithm. To generate the board you have to make sure that it is solvable with the clues given and that enough clues are given so there are no guesses. The solver was especially difficult before we learned about recursion. The issue we encountered was that it would leave spaces empty in the solution. After debugging we found the source of the issue and decided recursion was the right way to go.
